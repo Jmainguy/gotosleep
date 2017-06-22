@@ -4,7 +4,6 @@ import (
     "syscall"
     "time"
     "fmt"
-    "strconv"
 )
 
 func check(e error) {
@@ -19,7 +18,7 @@ func main() {
     for {
         t := time.Now()
         sleeptime := config()
-        st := fmt.Sprintf("%s:%s", strconv.Itoa(t.Hour()), strconv.Itoa(t.Minute()))
+        st := fmt.Sprintf(t.Format("15:04"))
 
         if st == sleeptime {
             fmt.Println("Shutting down")
